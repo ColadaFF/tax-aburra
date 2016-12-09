@@ -2,15 +2,12 @@ package co.edu.polijic.services;
 
 import co.edu.polijic.domain.Ride;
 import co.edu.polijic.repositories.RidesRepository;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.sql.*;
 
@@ -75,7 +72,7 @@ public class RideServices implements RidesRepository {
                     );
                     observer.onSuccess(ride);
                 } else {
-                    observer.onError(new InvalidArgumentException(new String[]{"No ride found with id: " + id}));
+                    observer.onError(new IllegalArgumentException("No ride found with id: " + id));
                 }
             } catch (Exception e) {
                 observer.onError(e);
