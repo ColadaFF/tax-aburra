@@ -94,7 +94,7 @@ public class RideServices implements RidesRepository {
                 statement.setDate(3, ride.getInitDate());
                 statement.setLong(4, ride.getIdDriver());
                 statement.setLong(5, ride.getIdCall());
-                statement.setDate(5, ride.getEndDate());
+                statement.setDate(6, ride.getEndDate());
                 int affectedRows = statement.executeUpdate();
 
                 if (affectedRows == 0) {
