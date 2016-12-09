@@ -1,5 +1,5 @@
 oracle:
-  url: jdbc:oracle:thin:@//localhost:1521/xe
+  url: jdbc:oracle:thin:@//34.194.161.34:1521/xe
   username: us_tax
   password: 1235
   driver: oracle.jdbc.driver.OracleDriver
