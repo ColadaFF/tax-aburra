@@ -86,14 +86,15 @@ public class RideServices implements RidesRepository {
             try (
                     Connection connection = dataSource.getConnection();
                     PreparedStatement statement = connection.prepareStatement("INSERT INTO RIDES(" +
-                            "IDSERVICE, ADDRESS, RESPONSIBLENAME, INITRIDEDATE, DRIVERS_IDDRIVER, CALLS_IDCALL" +
-                            ") VALUES(RIDES_SEQ.nextval, ?, ?, ?, ?, ?)", generatedColumns);
+                            "IDSERVICE, ADDRESS, RESPONSIBLENAME, INITRIDEDATE, DRIVERS_IDDRIVER, CALLS_IDCALL, ENDRIDEDATE" +
+                            ") VALUES(RIDES_SEQ.nextval, ?, ?, ?, ?, ?, ?)", generatedColumns);
             ) {
                 statement.setString(1, ride.getAddress());
                 statement.setString(2, ride.getResponsibleName());
                 statement.setDate(3, ride.getInitDate());
                 statement.setLong(4, ride.getIdDriver());
                 statement.setLong(5, ride.getIdCall());
+                statement.setDate(5, ride.getEndDate());
                 int affectedRows = statement.executeUpdate();
 
                 if (affectedRows == 0) {
