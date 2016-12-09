@@ -62,7 +62,7 @@ public class CallServices implements CallsRepository {
                     Connection connection = dataSource.getConnection();
                     PreparedStatement statement = connection.prepareStatement("INSERT INTO CALLS(" +
                             "IDCALL, PHONENUMBER, \"date\"" +
-                            ") VALUES(SYSTEM.CALLS_SEQ.nextval, ?, ?)", generatedColumns);
+                            ") VALUES(CALLS_SEQ.nextval, ?, ?)", generatedColumns);
             ) {
                 statement.setLong(1, call.getPhoneNumber());
                 statement.setDate(2, call.getDate());

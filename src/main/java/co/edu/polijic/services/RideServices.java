@@ -87,7 +87,7 @@ public class RideServices implements RidesRepository {
                     Connection connection = dataSource.getConnection();
                     PreparedStatement statement = connection.prepareStatement("INSERT INTO RIDES(" +
                             "IDSERVICE, ADDRESS, RESPONSIBLENAME, INITRIDEDATE, DRIVERS_IDDRIVER, CALLS_IDCALL" +
-                            ") VALUES(SYSTEM.RIDES_SEQ.nextval, ?, ?, ?, ?, ?)", generatedColumns);
+                            ") VALUES(RIDES_SEQ.nextval, ?, ?, ?, ?, ?)", generatedColumns);
             ) {
                 statement.setString(1, ride.getAddress());
                 statement.setString(2, ride.getResponsibleName());
